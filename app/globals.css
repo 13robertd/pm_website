@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base typography + smoothing for a premium SaaS feel */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
+}
+
+/* Subtle dotted background used in dashboard preview */
+.bg-dots {
+  background-image: radial-gradient(rgb(15 23 42 / 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
