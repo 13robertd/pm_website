@@ -2,7 +2,7 @@ import Header from "@/components/site/Header";
 import Hero from "@/components/site/Hero";
 import TrustBar from "@/components/site/TrustBar";
 import OwnerOperatorSection from "@/components/site/OwnerOperatorSection";
-import Differentiators from "@/components/site/Differentiators";
+import ComparisonTable from "@/components/site/ComparisonTable";
 import Services from "@/components/site/Services";
 import DashboardPreview from "@/components/site/DashboardPreview";
 import HomeownerServices from "@/components/site/HomeownerServices";
@@ -15,7 +15,7 @@ import Footer from "@/components/site/Footer";
 //   Hero            — headline, CTAs, mini dashboard, trust chips
 //   TrustBar        — strip of trust badges
 //   OwnerOperator   — credibility: built by owners/operators
-//   Differentiators — Tech-Friendly / Professional / Fast
+//   ComparisonTable — Industry Standard vs. Bayline
 //   Services        — 8 outcome-focused PM services
 //   DashboardPreview — premium SaaS-style portfolio view
 //   HomeownerServices — secondary vertical
@@ -31,7 +31,7 @@ export default function HomePage() {
         <Hero />
         <TrustBar />
         <OwnerOperatorSection />
-        <Differentiators />
+        <ComparisonTable />
         <Services />
         <DashboardPreview />
         <HomeownerServices />

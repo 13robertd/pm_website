@@ -1,3 +1,4 @@
+import { Home, ShieldCheck } from "lucide-react";
 import { COMPANY_NAME } from "@/lib/content";
 
 const FOOTER_LINKS = [
@@ -7,6 +8,18 @@ const FOOTER_LINKS = [
   { label: "Service Areas", href: "#service-areas" },
   { label: "Contact", href: "#contact" },
   { label: "Privacy", href: "#" },
+];
+
+// Professional standards / regulatory reassurance. Visual weight is kept
+// low on purpose — this is here so a discerning owner can scan and know
+// we're a real, licensed operator, not to advertise the credentials.
+// The "logos" are text placeholders for now; swap to real image assets
+// (NARPM badge SVG, EHO logo) once they're available.
+const STANDARDS = [
+  { label: "CA DRE Lic. # [TBD]" },
+  { label: "NARPM Member" },
+  { label: "Equal Housing Opportunity" },
+  { label: "Licensed & Insured" },
 ];
 
 export default function Footer() {
@@ -40,7 +53,26 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-slate-100 pt-6 text-xs text-slate-500 md:flex-row md:items-center">
+        {/* Professional standards row — quiet reassurance, low visual weight */}
+        <div className="mt-8 border-t border-slate-100 pt-6">
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-wide text-slate-400">
+            {STANDARDS.map((item, idx) => (
+              <li key={item.label} className="inline-flex items-center gap-2">
+                {/* Use icons for the items that conceptually need a glyph;
+                    the rest are just text — keeps the row from looking busy. */}
+                {idx === 2 && (
+                  <Home size={12} className="text-slate-400" aria-hidden />
+                )}
+                {idx === 3 && (
+                  <ShieldCheck size={12} className="text-slate-400" aria-hidden />
+                )}
+                <span>{item.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-slate-100 pt-6 text-xs text-slate-500 md:flex-row md:items-center">
           <span>
             © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
           </span>
