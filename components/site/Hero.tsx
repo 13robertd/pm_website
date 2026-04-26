@@ -1,7 +1,9 @@
-import { ArrowRight, TrendingUp, Wrench, FileText, Home } from "lucide-react";
+import { ArrowRight, TrendingUp, Wrench, FileText, Home, Check } from "lucide-react";
+import { TRUST_BADGES } from "@/lib/content";
 
 // Hero with a polished mock dashboard visual on the right.
-// Two CTAs: primary (proposal) and secondary (homeowner services).
+// Two CTAs: primary (proposal) and secondary (see dashboard).
+// Trust chips appear directly below the CTAs for fast credibility.
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -18,16 +20,16 @@ export default function Hero() {
             <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
               Bay Area • South Bay specialists
             </span>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Modern property management for{" "}
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+              Fast, transparent property management for{" "}
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
                 Bay Area owners.
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              Fast, professional, tech-enabled management for rental owners,
-              small multifamily investors, and busy homeowners across the South
-              Bay.
+              Modern systems, responsive communication, and clear owner
+              reporting for rental homes and small multifamily properties
+              across the South Bay.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -35,44 +37,31 @@ export default function Hero() {
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
               >
-                Get Management Proposal
+                Get a Management Proposal
                 <ArrowRight size={16} />
               </a>
               <a
-                href="#homeowner-services"
+                href="#dashboard"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
               >
-                Explore Homeowner Services
+                See Owner Dashboard
               </a>
             </div>
 
-            {/* Quick proof points under CTAs */}
-            <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-slate-200 pt-6">
-              <div>
-                <dt className="text-xs uppercase tracking-wide text-slate-500">
-                  Avg. response
-                </dt>
-                <dd className="mt-1 text-lg font-semibold text-slate-900">
-                  &lt; 2 hrs
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wide text-slate-500">
-                  Markets
-                </dt>
-                <dd className="mt-1 text-lg font-semibold text-slate-900">
-                  South Bay
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wide text-slate-500">
-                  Owner portal
-                </dt>
-                <dd className="mt-1 text-lg font-semibold text-slate-900">
-                  24 / 7
-                </dd>
-              </div>
-            </dl>
+            {/* Inline trust chips — fast credibility right below the CTAs */}
+            <ul className="mt-7 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-600">
+              {TRUST_BADGES.map((badge) => (
+                <li
+                  key={badge}
+                  className="inline-flex items-center gap-1.5"
+                >
+                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-100 text-brand-700">
+                    <Check size={10} strokeWidth={3} />
+                  </span>
+                  <span>{badge}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Right — dashboard mockup */}

@@ -39,9 +39,8 @@ export default function LeadForm() {
                 Get a better property management experience.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
-                Tell us about your property. We&apos;ll send a clear proposal
-                with pricing, scope, and a fast onboarding plan — usually
-                within one business day.
+                We&apos;ll review your property and respond with next steps —
+                usually within one business day.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-slate-700">
                 <li className="flex items-center gap-2">

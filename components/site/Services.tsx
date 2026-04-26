@@ -1,14 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { PROPERTY_MANAGEMENT_SERVICES } from "@/lib/content";
 
-// Primary services section. Emphasizes the operational mindset (owner
-// transparency, fast comms, clean reporting) without sounding generic.
-export default function PropertyManagement() {
+// Primary services section. Copy here is intentionally outcome-focused —
+// the goal is for an owner to scan the cards and immediately see what they
+// get out of each service, not just what we do.
+export default function Services() {
   return (
-    <section
-      id="property-management"
-      className="bg-slate-50 py-20 sm:py-24"
-    >
+    <section id="property-management" className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-3 lg:gap-16">
           {/* Left: section intro */}
@@ -17,20 +15,20 @@ export default function PropertyManagement() {
               Property Management
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Property management without the old-school friction.
+              Maximize occupancy. Protect asset value. Skip the friction.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               We run your rental like a modern operation: transparent owner
               reporting, fast communication, and a practical asset management
-              mindset on every decision. No paper statements, no vague
-              vendor invoices, no waiting days for an answer.
+              mindset on every decision. No paper statements, no vague vendor
+              invoices, no waiting days for an answer.
             </p>
             <div className="mt-6">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
               >
-                Get a Property Management Proposal
+                Get a Management Proposal
                 <ArrowRight size={16} />
               </a>
             </div>

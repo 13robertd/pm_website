@@ -18,7 +18,7 @@ export default function DashboardPreview() {
             Owner Dashboard
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Your portfolio. One clean view.
+            Owners deserve visibility, not guesswork.
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Track occupancy, income, NOI trend, and open work orders in real
