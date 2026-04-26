@@ -21,30 +21,29 @@ export default function Hero() {
               Bay Area • South Bay specialists
             </span>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              Fast, transparent property management for{" "}
+              Modern property management for{" "}
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
                 Bay Area owners.
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              Modern systems, responsive communication, and clear owner
-              reporting for rental homes and small multifamily properties
-              across the South Bay.
+              See what your property could rent for and experience a better
+              owner dashboard built for modern landlords.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#contact"
+                href="/estimate"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
               >
-                Get a Management Proposal
+                Get Free Rental Estimate
                 <ArrowRight size={16} />
               </a>
               <a
                 href="#dashboard"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
               >
-                See Owner Dashboard
+                Preview Owner Dashboard
               </a>
             </div>
 

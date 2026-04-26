@@ -25,10 +25,10 @@ export default function Services() {
             </p>
             <div className="mt-6">
               <a
-                href="#contact"
+                href="/estimate"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
               >
-                Get a Management Proposal
+                Get Free Rental Estimate
                 <ArrowRight size={16} />
               </a>
             </div>

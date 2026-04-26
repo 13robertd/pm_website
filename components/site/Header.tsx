@@ -36,13 +36,13 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA — routes into the estimate funnel */}
         <div className="hidden md:block">
           <a
-            href="#contact"
+            href="/estimate"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
           >
-            Get Proposal
+            Get Free Estimate
           </a>
         </div>
 
@@ -72,11 +72,11 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/estimate"
               onClick={() => setOpen(false)}
               className="mt-2 block rounded-full bg-slate-900 px-4 py-2 text-center text-sm font-medium text-white"
             >
-              Get Proposal
+              Get Free Estimate
             </a>
           </div>
         </div>
