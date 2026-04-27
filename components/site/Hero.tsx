@@ -18,17 +18,18 @@ export default function Hero() {
           {/* Left — copy */}
           <div>
             <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
-              Bay Area • South Bay specialists
+              Peninsula &amp; South Bay Property Management
             </span>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              Modern property management for{" "}
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.07]">
+              Property Management for{" "}
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
-                Bay Area owners.
+                Peninsula &amp; South Bay Homeowners.
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              See what your property could rent for and experience a better
-              owner dashboard built for modern landlords.
+              Modern rental management, owner reporting, and proactive
+              maintenance for single-family homes and small multifamily
+              properties from San Mateo to San Jose.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

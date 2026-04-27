@@ -39,19 +39,77 @@ export const PROPERTY_STATUS_LABELS: Record<PropertyStatus, string> = {
 type CityBaselines = Partial<Record<PropertyType, { low: number; high: number }>>;
 
 export const CITY_BASELINES: Record<string, CityBaselines> = {
+  // ---- Peninsula ----
+  Hillsborough: {
+    "single-family": { low: 7000, high: 12000 },
+    condo: { low: 4500, high: 6500 },
+    duplex: { low: 7500, high: 10500 },
+    "small-multifamily": { low: 4000, high: 5500 },
+    apartment: { low: 3800, high: 5200 },
+  },
+  Burlingame: {
+    "single-family": { low: 5500, high: 8500 },
+    condo: { low: 3800, high: 5500 },
+    duplex: { low: 6500, high: 9500 },
+    "small-multifamily": { low: 3300, high: 4500 },
+    apartment: { low: 3200, high: 4400 },
+  },
+  "San Mateo": {
+    "single-family": { low: 4500, high: 6500 },
+    condo: { low: 3500, high: 5000 },
+    duplex: { low: 5500, high: 8000 },
+    "small-multifamily": { low: 3000, high: 4100 },
+    apartment: { low: 2900, high: 4000 },
+  },
+  Belmont: {
+    "single-family": { low: 4500, high: 6800 },
+    condo: { low: 3400, high: 4800 },
+    duplex: { low: 5500, high: 8000 },
+    "small-multifamily": { low: 2900, high: 3900 },
+    apartment: { low: 2800, high: 3800 },
+  },
+  "Redwood City": {
+    "single-family": { low: 4500, high: 6500 },
+    condo: { low: 3400, high: 4900 },
+    duplex: { low: 5500, high: 8000 },
+    "small-multifamily": { low: 2900, high: 4000 },
+    apartment: { low: 2800, high: 3900 },
+  },
+  Atherton: {
+    "single-family": { low: 9000, high: 18000 },
+    condo: { low: 4500, high: 6500 },
+    duplex: { low: 8000, high: 11000 },
+    "small-multifamily": { low: 4200, high: 5800 },
+    apartment: { low: 4000, high: 5500 },
+  },
+  "Menlo Park": {
+    "single-family": { low: 5500, high: 9000 },
+    condo: { low: 3800, high: 5500 },
+    duplex: { low: 6500, high: 9500 },
+    "small-multifamily": { low: 3200, high: 4400 },
+    apartment: { low: 3100, high: 4300 },
+  },
+  "Palo Alto": {
+    "single-family": { low: 6500, high: 11000 },
+    condo: { low: 4200, high: 6000 },
+    duplex: { low: 7000, high: 10000 },
+    "small-multifamily": { low: 3500, high: 4700 },
+    apartment: { low: 3400, high: 4600 },
+  },
+  // ---- South Bay ----
+  "Mountain View": {
+    "single-family": { low: 4500, high: 6500 },
+    condo: { low: 3500, high: 5000 },
+    duplex: { low: 5500, high: 8000 },
+    "small-multifamily": { low: 3000, high: 4000 },
+    apartment: { low: 2900, high: 3800 },
+  },
   Sunnyvale: {
     "single-family": { low: 4000, high: 5500 },
     condo: { low: 3200, high: 4500 },
     duplex: { low: 5500, high: 8000 },
-    "small-multifamily": { low: 2800, high: 3800 }, // per unit
-    apartment: { low: 2700, high: 3600 }, // per unit
-  },
-  "San Jose": {
-    "single-family": { low: 3600, high: 5000 },
-    condo: { low: 2800, high: 4200 },
-    duplex: { low: 4800, high: 7000 },
-    "small-multifamily": { low: 2500, high: 3400 },
-    apartment: { low: 2400, high: 3200 },
+    "small-multifamily": { low: 2800, high: 3800 },
+    apartment: { low: 2700, high: 3600 },
   },
   "Santa Clara": {
     "single-family": { low: 3900, high: 5300 },
@@ -60,19 +118,19 @@ export const CITY_BASELINES: Record<string, CityBaselines> = {
     "small-multifamily": { low: 2700, high: 3700 },
     apartment: { low: 2600, high: 3500 },
   },
-  "Mountain View": {
-    "single-family": { low: 4500, high: 6500 },
-    condo: { low: 3500, high: 5000 },
-    duplex: { low: 5500, high: 8000 },
-    "small-multifamily": { low: 3000, high: 4000 },
-    apartment: { low: 2900, high: 3800 },
-  },
   Cupertino: {
     "single-family": { low: 4800, high: 7000 },
     condo: { low: 3600, high: 5200 },
     duplex: { low: 6000, high: 8500 },
     "small-multifamily": { low: 3100, high: 4100 },
     apartment: { low: 3000, high: 4000 },
+  },
+  "San Jose": {
+    "single-family": { low: 3600, high: 5000 },
+    condo: { low: 2800, high: 4200 },
+    duplex: { low: 4800, high: 7000 },
+    "small-multifamily": { low: 2500, high: 3400 },
+    apartment: { low: 2400, high: 3200 },
   },
   Campbell: {
     "single-family": { low: 3800, high: 5200 },

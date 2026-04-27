@@ -3,8 +3,8 @@ import { COMPANY_NAME } from "@/lib/content";
 
 const FOOTER_LINKS = [
   { label: "Property Management", href: "#property-management" },
-  { label: "Homeowner Services", href: "#homeowner-services" },
   { label: "Owner Dashboard", href: "#dashboard" },
+  { label: "Rental Analysis", href: "#rental-analysis" },
   { label: "Service Areas", href: "#service-areas" },
   { label: "Contact", href: "#contact" },
   { label: "Privacy", href: "#" },
