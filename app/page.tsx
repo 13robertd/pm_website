@@ -1,14 +1,17 @@
 import Header from "@/components/site/Header";
 import Hero from "@/components/site/Hero";
 import TrustBar from "@/components/site/TrustBar";
+import StatsStrip from "@/components/site/StatsStrip";
 import AnswerSection from "@/components/site/AnswerSection";
 import OwnerOperatorSection from "@/components/site/OwnerOperatorSection";
+import FounderNote from "@/components/site/FounderNote";
 import ComparisonTable from "@/components/site/ComparisonTable";
 import Services from "@/components/site/Services";
 import DashboardPreview from "@/components/site/DashboardPreview";
 import HomeownerServices from "@/components/site/HomeownerServices";
 import ServiceAreas from "@/components/site/ServiceAreas";
 import RentalAnalysisForm from "@/components/site/RentalAnalysisForm";
+import FloatingCTA from "@/components/site/FloatingCTA";
 import Footer from "@/components/site/Footer";
 import {
   COMPANY_NAME,
@@ -97,16 +100,19 @@ const faqLd = {
 //
 //   Hero             — headline, CTAs, mini dashboard, trust chips
 //   TrustBar         — strip of trust badges
+//   StatsStrip       — 4 headline operating numbers
 //   AnswerSection    — AI-friendly Q&A, mirrors FAQPage JSON-LD
 //   OwnerOperator    — credibility: built by owners/operators
+//   FounderNote      — founder voice + DRE placeholder
 //   ComparisonTable  — Industry Standard vs. Bayline
 //   Services         — 8 outcome-focused PM services
-//   DashboardPreview — premium SaaS-style portfolio view
-//   HomeownerServices — secondary vertical
-//   ServiceAreas     — Peninsula + South Bay two-column list
+//   DashboardPreview — single-property dashboard mockup + verb strip
+//   HomeownerServices — secondary vertical (qualifier + dual CTAs)
+//   ServiceAreas     — Peninsula + South Bay tiles with city taglines
 //   RentalAnalysisForm — inline lead capture (#rental-analysis, #contact)
 //
-// Section components are independent — reordering is one line each.
+// FloatingCTA renders as a fixed element on top of the page — appears
+// after the user scrolls past the hero on desktop.
 export default function HomePage() {
   return (
     <>
@@ -125,8 +131,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <TrustBar />
+        <StatsStrip />
         <AnswerSection />
         <OwnerOperatorSection />
+        <FounderNote />
         <ComparisonTable />
         <Services />
         <DashboardPreview />
@@ -134,6 +142,7 @@ export default function HomePage() {
         <ServiceAreas />
         <RentalAnalysisForm />
       </main>
+      <FloatingCTA />
       <Footer />
     </>
   );

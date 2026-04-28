@@ -1,4 +1,13 @@
-import { Home, DollarSign, Receipt, Wrench } from "lucide-react";
+import {
+  Home,
+  DollarSign,
+  Receipt,
+  Wrench,
+  CreditCard,
+  Hammer,
+  FileText,
+  Download,
+} from "lucide-react";
 
 // Owner Dashboard preview — single-family home edition.
 // We deliberately show only the four numbers a single-property owner
@@ -21,8 +30,8 @@ export default function DashboardPreview() {
             Owners deserve visibility, not guesswork.
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Four numbers that tell you everything you need to know about
-            your rental — and a clean line from rent to net.
+            Check your rent payment without a phone call. See what was spent
+            on the last work order. Know when the lease renews.
           </p>
         </div>
 
@@ -93,6 +102,27 @@ export default function DashboardPreview() {
               </div>
             </div>
           </div>
+
+          {/* "What you can see" verb strip — frames the dashboard as a
+              tool, not a screenshot. */}
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-600">
+            <li className="inline-flex items-center gap-2">
+              <CreditCard size={16} className="text-brand-700" />
+              Track rent
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <Hammer size={16} className="text-brand-700" />
+              Approve repairs
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <FileText size={16} className="text-brand-700" />
+              Read statements
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <Download size={16} className="text-brand-700" />
+              Export for taxes
+            </li>
+          </ul>
         </div>
       </div>
     </section>

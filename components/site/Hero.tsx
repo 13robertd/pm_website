@@ -27,9 +27,9 @@ export default function Hero() {
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              Modern rental management, owner reporting, and proactive
-              maintenance for single-family homes and small multifamily
-              properties from San Mateo to San Jose.
+              See what your home could rent for and how a modern owner
+              dashboard would work — built for Peninsula and South Bay
+              rentals from San Mateo to San Jose.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -92,7 +92,7 @@ function HeroDashboard() {
             <span className="h-2.5 w-2.5 rounded-full bg-slate-200" />
           </div>
           <span className="text-xs font-medium text-slate-500">
-            1247 Sunnydale Ave · Sunnyvale
+            812 Madrona Pl · Palo Alto
           </span>
         </div>
 

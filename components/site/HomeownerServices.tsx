@@ -18,12 +18,12 @@ export default function HomeownerServices() {
             Homeowner Services
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Homeowner support when you need trusted local help.
+            Already own a Bay Area home but not ready to rent?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            For busy owners, vacant homes, frequent travelers, or owners
-            preparing a home for rent or sale, we can help coordinate the
-            small but important details.
+            We help with the in-between — for busy owners, vacant homes,
+            frequent travelers, and owners preparing a property for rent or
+            sale.
           </p>
         </div>
 
@@ -59,12 +59,18 @@ export default function HomeownerServices() {
           })}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
+            href="mailto:hello@bayline.example?subject=Homeowner%20Services%20Inquiry"
+            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
           >
-            Ask About Homeowner Services
+            Talk to a homeowner services advisor
+          </a>
+          <a
+            href="/estimate"
+            className="text-sm font-medium text-slate-700 underline-offset-4 transition-colors hover:text-slate-900 hover:underline"
+          >
+            Or get a rental estimate →
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import { Home, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Building2, Home, ShieldCheck } from "lucide-react";
 import { COMPANY_NAME } from "@/lib/content";
+import type { LucideIcon } from "lucide-react";
 
 const FOOTER_LINKS = [
   { label: "Property Management", href: "#property-management" },
@@ -10,16 +11,19 @@ const FOOTER_LINKS = [
   { label: "Privacy", href: "#" },
 ];
 
-// Professional standards / regulatory reassurance. Visual weight is kept
-// low on purpose — this is here so a discerning owner can scan and know
-// we're a real, licensed operator, not to advertise the credentials.
-// The "logos" are text placeholders for now; swap to real image assets
-// (NARPM badge SVG, EHO logo) once they're available.
-const STANDARDS = [
-  { label: "CA DRE Lic. # [TBD]" },
-  { label: "NARPM Member" },
-  { label: "Equal Housing Opportunity" },
-  { label: "Licensed & Insured" },
+// Professional standards / regulatory reassurance.
+//   - CA DRE      → BadgeCheck (credential)
+//   - NARPM       → Building2  (residential PM org)
+//   - Equal Housing Opportunity → Home + equal-bar via icon
+//   - Licensed & Insured → ShieldCheck
+// Each is a small pill; the row stays quiet (slate-400/500) so it
+// reads as compliance, not promotion. Swap these inline icons for
+// real NARPM / EHO SVG assets when available.
+const STANDARDS: { label: string; icon: LucideIcon }[] = [
+  { label: "CA DRE Lic. # [TBD]", icon: BadgeCheck },
+  { label: "NARPM Member", icon: Building2 },
+  { label: "Equal Housing Opportunity", icon: Home },
+  { label: "Licensed & Insured", icon: ShieldCheck },
 ];
 
 export default function Footer() {
@@ -55,18 +59,14 @@ export default function Footer() {
 
         {/* Professional standards row — quiet reassurance, low visual weight */}
         <div className="mt-8 border-t border-slate-100 pt-6">
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-wide text-slate-400">
-            {STANDARDS.map((item, idx) => (
-              <li key={item.label} className="inline-flex items-center gap-2">
-                {/* Use icons for the items that conceptually need a glyph;
-                    the rest are just text — keeps the row from looking busy. */}
-                {idx === 2 && (
-                  <Home size={12} className="text-slate-400" aria-hidden />
-                )}
-                {idx === 3 && (
-                  <ShieldCheck size={12} className="text-slate-400" aria-hidden />
-                )}
-                <span>{item.label}</span>
+          <ul className="flex flex-wrap items-center gap-2.5">
+            {STANDARDS.map(({ label, icon: Icon }) => (
+              <li
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/60 px-3 py-1 text-[11px] font-medium text-slate-500"
+              >
+                <Icon size={12} className="text-slate-400" aria-hidden />
+                <span>{label}</span>
               </li>
             ))}
           </ul>

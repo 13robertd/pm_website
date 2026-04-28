@@ -1,10 +1,17 @@
 import { MapPin } from "lucide-react";
-import { PENINSULA_AREAS, SOUTH_BAY_AREAS } from "@/lib/content";
+import {
+  PENINSULA_AREAS,
+  SOUTH_BAY_AREAS,
+  CITY_TAGLINES,
+} from "@/lib/content";
 
 // Two-column service area layout: Peninsula on the left, South Bay on
-// the right. City names are rendered as plain text inside <span> tags
-// — they're ready to upgrade to <Link href={`/areas/${slug}`}> when
-// city-level landing pages are built.
+// the right. Each city is a small inner card with the city name and a
+// one-line tagline pulled from CITY_TAGLINES (lib/content.ts). Cities
+// without a tagline render the city name only.
+//
+// City names are still rendered as plain text — wrap in <Link> when
+// per-city landing pages exist.
 export default function ServiceAreas() {
   return (
     <section id="service-areas" className="bg-white py-20 sm:py-24">
@@ -45,13 +52,23 @@ function RegionColumn({
         <MapPin size={14} />
         {label}
       </div>
-      <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm sm:grid-cols-2">
+      <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {cities.map((city) => (
-          <li key={city}>
-            {/* Plain text for now — easy to swap for <Link> later when
-                per-city landing pages exist. */}
-            <span className="font-medium text-slate-900">{city}</span>
-            <span className="ml-1 text-slate-500">property management</span>
+          <li
+            key={city}
+            className="rounded-xl border border-slate-200/70 bg-white p-4 transition-colors hover:border-brand-200 hover:bg-brand-50/30"
+          >
+            <div className="text-sm font-semibold text-slate-900">
+              {city}
+              <span className="ml-1 font-normal text-slate-500">
+                property management
+              </span>
+            </div>
+            {CITY_TAGLINES[city] && (
+              <div className="mt-1 text-xs leading-relaxed text-slate-600">
+                {CITY_TAGLINES[city]}
+              </div>
+            )}
           </li>
         ))}
       </ul>

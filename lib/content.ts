@@ -171,3 +171,48 @@ export const FAQ_ITEMS = [
       "Bayline serves rental owners across the Peninsula and South Bay, including San Mateo, Burlingame, Belmont, Redwood City, Palo Alto, Mountain View, Sunnyvale, Santa Clara, Cupertino, San Jose, Campbell, and Los Gatos.",
   },
 ] as const;
+
+// Headline operating numbers for the homepage StatsStrip. Tweak the
+// values here when real metrics replace these directional placeholders.
+export const HOMEPAGE_STATS = [
+  { value: "< 2 hrs", label: "Average owner response" },
+  { value: "Same-day", label: "Maintenance triage" },
+  { value: "16", label: "Cities served · Peninsula + South Bay" },
+  { value: "100%", label: "Digital owner statements" },
+] as const;
+
+// Founder note rendered in components/site/FounderNote.tsx. Plain
+// strings so the placeholders are obvious; swap for real values when
+// the founder bio + headshot are ready.
+export const FOUNDER = {
+  name: "[Founder Name]",
+  role: "Broker · Founder",
+  license: "CA DRE License # [TBD]",
+  // Initials shown inside the placeholder portrait circle.
+  initials: "BP",
+  note: "I started Bayline because I was a Bay Area homeowner first. I wanted the kind of management I could never find: clear reporting, fast responses, and a real human who picks up the phone. We built it that way from day one — and we run every property as if we owned it.",
+} as const;
+
+// Per-city flavor copy shown under each city tile in ServiceAreas.
+// Optional — cities without an entry render the city name only.
+// Keep these short (one sentence) so the grid stays scannable.
+export const CITY_TAGLINES: Record<string, string> = {
+  // Peninsula
+  Hillsborough: "Premium SFH rentals on quiet residential blocks.",
+  Burlingame: "Family rentals near Burlingame Ave and Mills-Peninsula.",
+  "San Mateo": "Single-family and small multifamily across Highlands to North Shoreview.",
+  Belmont: "Hillside SFHs and condos with fast Caltrain access.",
+  "Redwood City": "Downtown condos and single-family rentals near tech employers.",
+  Atherton: "High-end SFH rentals operated with discretion.",
+  "Menlo Park": "SFHs near Sand Hill Road, Stanford-adjacent demand.",
+  "Palo Alto": "Tech-owner properties near University Ave with fast lease-up.",
+  // South Bay
+  "Mountain View": "SFHs and townhomes near Castro Street and Google campuses.",
+  Sunnyvale: "Family rentals near Apple, LinkedIn, and Sunnyvale CalTrain.",
+  "Santa Clara": "Single-family and small multifamily near Levi's Stadium.",
+  Cupertino: "Apple-zone rentals — top schools, top demand.",
+  "San Jose": "Willow Glen, Almaden, and Rose Garden single-family rentals.",
+  Campbell: "Walkable downtown SFHs and condos with strong renewal rates.",
+  "Los Gatos": "Premium SFHs in walkable downtown and the hillsides.",
+  Milpitas: "Townhomes and SFHs with fast access to 880 and 237.",
+};
