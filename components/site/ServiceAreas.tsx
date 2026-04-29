@@ -1,17 +1,19 @@
+import Link from "next/link";
 import { MapPin } from "lucide-react";
 import {
   PENINSULA_AREAS,
   SOUTH_BAY_AREAS,
   CITY_TAGLINES,
 } from "@/lib/content";
+import { citySlug } from "@/lib/areas";
 
 // Two-column service area layout: Peninsula on the left, South Bay on
-// the right. Each city is a small inner card with the city name and a
-// one-line tagline pulled from CITY_TAGLINES (lib/content.ts). Cities
-// without a tagline render the city name only.
+// the right. Each city is its own card linking to /areas/[slug] —
+// every homepage and every city page links to all 16 cities, building
+// strong internal connectivity for SEO.
 //
-// City names are still rendered as plain text — wrap in <Link> when
-// per-city landing pages exist.
+// Optional taglines from CITY_TAGLINES (lib/content.ts) render under
+// the city name. Cities without one render the city name only.
 export default function ServiceAreas() {
   return (
     <section id="service-areas" className="bg-white py-20 sm:py-24">
@@ -54,21 +56,23 @@ function RegionColumn({
       </div>
       <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {cities.map((city) => (
-          <li
-            key={city}
-            className="rounded-xl border border-slate-200/70 bg-white p-4 transition-colors hover:border-brand-200 hover:bg-brand-50/30"
-          >
-            <div className="text-sm font-semibold text-slate-900">
-              {city}
-              <span className="ml-1 font-normal text-slate-500">
-                property management
-              </span>
-            </div>
-            {CITY_TAGLINES[city] && (
-              <div className="mt-1 text-xs leading-relaxed text-slate-600">
-                {CITY_TAGLINES[city]}
+          <li key={city}>
+            <Link
+              href={`/areas/${citySlug(city)}`}
+              className="block rounded-xl border border-slate-200/70 bg-white p-4 transition-colors hover:border-brand-200 hover:bg-brand-50/30"
+            >
+              <div className="text-sm font-semibold text-slate-900">
+                {city}
+                <span className="ml-1 font-normal text-slate-500">
+                  property management
+                </span>
               </div>
-            )}
+              {CITY_TAGLINES[city] && (
+                <div className="mt-1 text-xs leading-relaxed text-slate-600">
+                  {CITY_TAGLINES[city]}
+                </div>
+              )}
+            </Link>
           </li>
         ))}
       </ul>

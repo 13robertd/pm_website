@@ -1,14 +1,26 @@
 import { ArrowRight, Check } from "lucide-react";
-import { TRUST_BADGES } from "@/lib/content";
+import { TRUST_BADGES, CITY_TAGLINES } from "@/lib/content";
+import { sampleAddressFor } from "@/lib/areas";
+import {
+  CITY_BASELINES,
+  FALLBACK_CITY_BASELINE,
+} from "@/lib/mockProperties";
 import HeroDashboard from "./HeroDashboard";
 
-// Hero with a polished mock dashboard visual on the right.
-// Two CTAs: primary (proposal) and secondary (see dashboard).
-// Trust chips appear directly below the CTAs for fast credibility.
-export default function Hero() {
+// Per-city hero. Same visual rhythm as the homepage Hero — eyebrow,
+// gradient H1, subhead, two CTAs, trust chips, mini dashboard on the
+// right — but with a city-specific H1 ("Property Management in {city}")
+// and a subhead that injects the city's single-family rent range and
+// tagline so the page proves we know the local market.
+export default function CityHero({ city }: { city: string }) {
+  const baseline =
+    CITY_BASELINES[city]?.["single-family"] ??
+    FALLBACK_CITY_BASELINE["single-family"]!;
+  const tagline = CITY_TAGLINES[city];
+  const address = sampleAddressFor(city);
+
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* Soft radial background for premium feel */}
+    <section className="relative overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgb(207_250_254/0.55),transparent_60%)]"
@@ -16,21 +28,28 @@ export default function Hero() {
 
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-14 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left — copy */}
           <div>
             <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
-              Peninsula &amp; South Bay Property Management
+              {city} Property Management
             </span>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.07]">
-              Property Management for{" "}
+              Property Management in{" "}
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
-                Peninsula &amp; South Bay Homeowners.
+                {city}.
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              See what your home could rent for and how a modern owner
-              dashboard would work — built for Peninsula and South Bay
-              rentals from San Mateo to San Jose.
+              {tagline ? `${tagline} ` : ""}
+              Single-family rentals in {city} typically rent between{" "}
+              <span className="font-medium text-slate-900">
+                ${baseline.low.toLocaleString()}
+              </span>{" "}
+              and{" "}
+              <span className="font-medium text-slate-900">
+                ${baseline.high.toLocaleString()}
+              </span>{" "}
+              per month. Get a free Bayline rental estimate tailored to
+              your property.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -49,13 +68,10 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Inline trust chips — fast credibility right below the CTAs */}
+            {/* Same trust chips as the homepage Hero */}
             <ul className="mt-7 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-600">
               {TRUST_BADGES.map((badge) => (
-                <li
-                  key={badge}
-                  className="inline-flex items-center gap-1.5"
-                >
+                <li key={badge} className="inline-flex items-center gap-1.5">
                   <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-100 text-brand-700">
                     <Check size={10} strokeWidth={3} />
                   </span>
@@ -65,8 +81,7 @@ export default function Hero() {
             </ul>
           </div>
 
-          {/* Right — dashboard mockup */}
-          <HeroDashboard />
+          <HeroDashboard address={address} />
         </div>
       </div>
     </section>
