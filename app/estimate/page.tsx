@@ -73,17 +73,28 @@ export default function EstimatePage() {
       submittedAt: new Date().toISOString(),
     };
 
-    // Placeholder for backend submission — currently just logs.
-    console.log("Lead submission:", payload);
-
+    // Save to sessionStorage first so the results page always has data,
+    // even if the API call fails. The user earned their report.
     try {
       sessionStorage.setItem(ESTIMATE_STORAGE_KEY, JSON.stringify(payload));
     } catch {
       // sessionStorage can fail in private mode; the results page handles it
     }
 
-    // Brief delay for nicer UX, then route to results
-    setTimeout(() => router.push("/estimate/results"), 350);
+    // Fire-and-await the API call. Errors are logged but don't block
+    // navigation — losing a server-side notification shouldn't ruin the
+    // user's experience after they completed three steps.
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source: "estimate_funnel", ...payload }),
+      });
+    } catch (err) {
+      console.error("Lead submission failed:", err);
+    }
+
+    router.push("/estimate/results");
   }
 
   return (

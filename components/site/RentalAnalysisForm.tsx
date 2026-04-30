@@ -8,21 +8,47 @@ import { PROPERTY_TYPES } from "@/lib/content";
 // Lower-friction alternative to the multi-step /estimate funnel —
 // this captures a lead in a single submit so SEO traffic landing on
 // the homepage can convert without leaving the page.
+//
+// Submits to POST /api/leads. On error we surface a retry-able
+// message so the lead isn't quietly lost.
 export default function RentalAnalysisForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
+    setError(null);
+
     const fd = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(fd.entries());
-    // Placeholder — wire to /api/leads or Supabase later.
-    console.log("Rental analysis lead:", payload);
-    setTimeout(() => {
-      setSubmitting(false);
+    const payload = {
+      source: "homepage_form",
+      ...Object.fromEntries(fd.entries()),
+    };
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as {
+          error?: string;
+        };
+        throw new Error(data.error || "Server error");
+      }
       setSubmitted(true);
-    }, 400);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -120,6 +146,14 @@ export default function RentalAnalysisForm() {
                   />
 
                   <div className="sm:col-span-2">
+                    {error && (
+                      <div
+                        role="alert"
+                        className="mb-3 rounded-xl border border-rose-200 bg-rose-50 px-3.5 py-2.5 text-sm text-rose-700"
+                      >
+                        {error}
+                      </div>
+                    )}
                     <button
                       type="submit"
                       disabled={submitting}
