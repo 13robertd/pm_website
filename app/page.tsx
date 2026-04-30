@@ -19,10 +19,7 @@ import {
   PENINSULA_AREAS,
   SOUTH_BAY_AREAS,
 } from "@/lib/content";
-
-// Site URL — keep in sync with metadataBase in app/layout.tsx so the
-// JSON-LD `url` field matches the canonical for crawlers / LLMs.
-const SITE_URL = "https://pm-website-lemon.vercel.app";
+import { SITE_URL } from "@/lib/site";
 
 // Schema.org structured data:
 //   1) RealEstateAgent — primary entity, includes service catalog and

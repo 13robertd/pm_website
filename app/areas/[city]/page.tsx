@@ -27,8 +27,7 @@ import {
   CITY_BASELINES,
   FALLBACK_CITY_BASELINE,
 } from "@/lib/mockProperties";
-
-const SITE_URL = "https://pm-website-lemon.vercel.app";
+import { SITE_URL } from "@/lib/site";
 
 // Prerender all 16 city pages at build time → static HTML for each.
 // Adding a city to PENINSULA_AREAS or SOUTH_BAY_AREAS automatically

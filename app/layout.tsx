@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 // Inter is a clean, modern sans-serif used by Stripe, Linear, etc.
 const inter = Inter({
@@ -13,7 +14,7 @@ const inter = Inter({
 // ("Peninsula and South Bay property management") and the secondary
 // city-level keywords roll up through the body copy + JSON-LD on the
 // homepage. Open Graph mirrors the same language for link previews.
-const siteUrl = "https://pm-website-lemon.vercel.app";
+const siteUrl = SITE_URL;
 const siteTitle =
   "Peninsula & South Bay Property Management | Bayline Property Co.";
 const siteDescription =
