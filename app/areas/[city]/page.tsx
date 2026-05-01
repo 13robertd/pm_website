@@ -21,6 +21,7 @@ import {
   cityFaqFor,
   cityFromSlug,
   regionFor,
+  sampleAddressFor,
 } from "@/lib/areas";
 import { COMPANY_NAME, CITY_TAGLINES } from "@/lib/content";
 import {
@@ -193,7 +194,7 @@ export default async function CityPage(
       />
 
       <Header />
-      <main>
+      <main id="main-content">
         <CityHero city={city} />
 
         {/* Visible breadcrumb — quiet, slate text */}
@@ -229,7 +230,7 @@ export default async function CityPage(
         <CityFAQ city={city} />
         <ComparisonTable />
         <Services />
-        <DashboardPreview />
+        <DashboardPreview address={sampleAddressFor(city)} />
         <ServiceAreas />
         <RentalAnalysisForm />
       </main>

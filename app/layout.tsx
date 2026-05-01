@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
@@ -64,6 +64,16 @@ export const metadata: Metadata = {
   },
 };
 
+// Viewport-level chrome. theme-color paints the URL bar on mobile
+// browsers (white in light mode, slate-900 in dark) and matches the
+// site's actual surface, not a generic blue.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -71,7 +81,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {/* Skip-to-content link for keyboard users. Visually hidden
+            until focused, then sits in the top-left as a real link. */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

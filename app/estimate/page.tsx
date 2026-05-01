@@ -100,7 +100,7 @@ export default function EstimatePage() {
   return (
     <>
       <Header />
-      <main className="bg-slate-50/40 py-12 sm:py-16">
+      <main id="main-content" className="bg-slate-50/40 py-12 sm:py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <EstimateHero step={step} totalSteps={3} />
 

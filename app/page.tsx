@@ -125,7 +125,7 @@ export default function HomePage() {
       />
 
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <TrustBar />
         <StatsStrip />

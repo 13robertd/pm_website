@@ -15,10 +15,15 @@ import {
 // whether the home is occupied. The "Net to you" row at the bottom
 // closes the loop so the math is visible.
 //
-// No NOI trends, no portfolio rollups, no rent roll — those add noise
-// for a one-home owner. If we ever support multi-property dashboards,
-// that's a separate variant.
-export default function DashboardPreview() {
+// `address` is the property header shown above the KPIs. Defaults to a
+// South Bay sample so the homepage looks complete; city pages pass in
+// their per-city sample address so the preview matches the rest of the
+// page.
+export default function DashboardPreview({
+  address = "1247 Sunnydale Ave · Sunnyvale",
+}: {
+  address?: string;
+} = {}) {
   return (
     <section id="dashboard" className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -45,7 +50,7 @@ export default function DashboardPreview() {
                   Your Property
                 </div>
                 <div className="mt-1 text-lg font-semibold text-slate-900">
-                  1247 Sunnydale Ave · Sunnyvale
+                  {address}
                 </div>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-500">

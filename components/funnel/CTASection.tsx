@@ -1,11 +1,12 @@
 import { ArrowRight, Calendar, Scale } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 // Strong CTA on the results page. Three buttons of decreasing intent:
 // management proposal (high), book consult (medium), compare to current
 // manager (lower commitment but still a real conversation).
 //
-// `mailto:` is used for now so leads route to a human inbox without any
-// backend wiring. Swap to a route handler / Calendly link later.
+// `mailto:` uses the central CONTACT_EMAIL constant so swapping for a
+// real inbox is a one-line change in lib/site.ts.
 export default function CTASection({
   emailSubject = "Property management inquiry",
 }: {
@@ -27,21 +28,21 @@ export default function CTASection({
 
       <div className="mx-auto mt-7 flex max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center">
         <a
-          href={`mailto:hello@bayline.example?subject=${subject}%20-%20Management%20Proposal`}
+          href={`mailto:${CONTACT_EMAIL}?subject=${subject}%20-%20Management%20Proposal`}
           className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
         >
           Request Management Proposal
           <ArrowRight size={16} />
         </a>
         <a
-          href={`mailto:hello@bayline.example?subject=${subject}%20-%20Book%20Consultation`}
+          href={`mailto:${CONTACT_EMAIL}?subject=${subject}%20-%20Book%20Consultation`}
           className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
         >
           <Calendar size={16} />
           Book Consultation
         </a>
         <a
-          href={`mailto:hello@bayline.example?subject=${subject}%20-%20Compare%20to%20Current%20Manager`}
+          href={`mailto:${CONTACT_EMAIL}?subject=${subject}%20-%20Compare%20to%20Current%20Manager`}
           className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
         >
           <Scale size={16} />

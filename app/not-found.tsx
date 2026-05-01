@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="bg-white py-20 sm:py-28">
+      <main id="main-content" className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-wide text-brand-700">
             404 · Page not found

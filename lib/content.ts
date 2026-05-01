@@ -3,12 +3,15 @@
 
 export const COMPANY_NAME = "Bayline Property Co.";
 
+// Homepage section anchors — written as /#section so the nav works
+// identically from any page (homepage scrolls; city pages navigate
+// then scroll). Next.js handles cross-page anchor scroll automatically.
 export const NAV_LINKS = [
-  { label: "Property Management", href: "#property-management" },
-  { label: "Owner Dashboard", href: "#dashboard" },
-  { label: "Homeowner Services", href: "#homeowner-services" },
-  { label: "Service Areas", href: "#service-areas" },
-  { label: "Contact", href: "#contact" },
+  { label: "Property Management", href: "/#property-management" },
+  { label: "Owner Dashboard", href: "/#dashboard" },
+  { label: "Homeowner Services", href: "/#homeowner-services" },
+  { label: "Service Areas", href: "/#service-areas" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 // Trust badges shown both as a strip below the hero and as inline chips

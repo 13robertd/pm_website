@@ -5,3 +5,9 @@
 export const SITE_URL = "https://pm-website-lemon.vercel.app";
 
 export const SITE_NAME = "Bayline Property Co.";
+
+// Public-facing contact email used by mailto: links in CTA sections.
+// Currently a placeholder on the .example reserved TLD — swap to a
+// real inbox before production. The /api/leads route is the primary
+// lead path; this email is only for ad-hoc human contact links.
+export const CONTACT_EMAIL = "hello@bayline.example";

@@ -1,5 +1,6 @@
 import { Eye, Phone, Sparkles, Check } from "lucide-react";
 import { HOMEOWNER_SERVICES } from "@/lib/content";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 // Secondary services line. Visually quieter than the PM section so it
 // reads as an add-on vertical, not the main business. Uses a light gray
@@ -61,7 +62,7 @@ export default function HomeownerServices() {
 
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="mailto:hello@bayline.example?subject=Homeowner%20Services%20Inquiry"
+            href={`mailto:${CONTACT_EMAIL}?subject=Homeowner%20Services%20Inquiry`}
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
           >
             Talk to a homeowner services advisor

@@ -24,7 +24,7 @@ export default function ResultsPage() {
       fallback={
         <>
           <Header />
-          <main className="py-20 text-center text-slate-500">
+          <main id="main-content" className="py-20 text-center text-slate-500">
             Loading your report…
           </main>
           <Footer />
@@ -76,7 +76,7 @@ function ResultsInner() {
     return (
       <>
         <Header />
-        <main className="flex min-h-[60vh] items-center justify-center text-sm text-slate-500">
+        <main id="main-content" className="flex min-h-[60vh] items-center justify-center text-sm text-slate-500">
           Generating your report…
         </main>
         <Footer />
@@ -87,7 +87,7 @@ function ResultsInner() {
   return (
     <>
       <Header />
-      <main className="bg-slate-50/40 py-12 sm:py-16">
+      <main id="main-content" className="bg-slate-50/40 py-12 sm:py-16">
         <div className="mx-auto max-w-5xl space-y-10 px-4 sm:px-6 lg:px-8">
           {/* Personalized greeting if we know who they are */}
           {payload.contact?.name && !isDemo && (

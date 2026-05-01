@@ -58,6 +58,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Honeypot. Real users never see the hidden `website` input; bots
+  // that fill every field do. We return a fake-success 200 so the
+  // bot can't tell it's been filtered out.
+  const honeypot = String(body.website ?? "").trim();
+  if (honeypot !== "") {
+    console.log("[lead] Honeypot triggered — silently dropping submission.");
+    return NextResponse.json({ ok: true });
+  }
+
   // Normalize identifying fields — both shapes can supply these in
   // different places.
   const email = (body.email ?? body.contact?.email ?? "").trim();

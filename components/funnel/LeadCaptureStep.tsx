@@ -4,10 +4,12 @@ import { ArrowLeft, ArrowRight, User } from "lucide-react";
 
 // Step 3: capture the lead before showing results.
 // Phone is optional. Email is the canonical identifier.
+// `website` is the honeypot — empty for real users, dropped server-side.
 export type LeadCaptureData = {
   name: string;
   email: string;
   phone: string;
+  website?: string;
 };
 
 export default function LeadCaptureStep({
@@ -28,11 +30,24 @@ export default function LeadCaptureStep({
       name: String(fd.get("name") ?? "").trim(),
       email: String(fd.get("email") ?? "").trim(),
       phone: String(fd.get("phone") ?? "").trim(),
+      // Honeypot — we still pass it through so the API can drop
+      // bot-submitted leads silently. Empty for real users.
+      website: String(fd.get("website") ?? ""),
     });
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot — hidden offscreen, real users never touch it. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+
       <div className="flex items-center gap-2 text-sm font-medium text-brand-700">
         <User size={16} />
         Where should we send your estimate?

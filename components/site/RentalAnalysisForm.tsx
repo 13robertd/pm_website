@@ -96,6 +96,18 @@ export default function RentalAnalysisForm() {
                   onSubmit={handleSubmit}
                   className="grid grid-cols-1 gap-4 sm:grid-cols-2"
                 >
+                  {/* Honeypot — hidden from real users by absolute
+                      positioning + tabindex/autocomplete off. Bots
+                      blindly fill it; we drop those server-side. */}
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                  />
+
                   <Field
                     className="sm:col-span-2"
                     label="Property address"
